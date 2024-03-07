@@ -10,6 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'products', component: ProductsComponent },
