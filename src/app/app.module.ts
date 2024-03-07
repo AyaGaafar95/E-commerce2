@@ -13,6 +13,7 @@ import { NavbarAuthComponent } from './components/navbar-auth/navbar-auth.compon
 import { NavbarBlankComponent } from './components/navbar-blank/navbar-blank.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategriesComponent } from './components/categries/categries.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CategriesComponent } from './components/categries/categries.component';
     NavbarAuthComponent,
     NavbarBlankComponent,
     FooterComponent,
-    CategriesComponent
+    CategriesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
