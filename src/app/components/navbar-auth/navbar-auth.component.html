@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">Navbar</a>
+    <a class="navbar-brand" routerLink="/">
+      <img src="./assets/images/freshcart-logo.svg" alt="" />
+    </a>
     <button
       class="navbar-toggler d-lg-none"
       type="button"
@@ -13,55 +15,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active-link" routerLink="/home"
-            >home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active-link" routerLink="/cart"
-            >cart</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLinkActive="active-link"
-            routerLink="/products"
-            >products</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLinkActive="active-link"
-            routerLink="/categories"
-            >categories</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLinkActive="active-link"
-            routerLink="/brands"
-            >brands</a
-          >
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active-link" routerLink="/login"
-            >login</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLinkActive="active-link"
-            routerLink="/regiser"
-            >regiser</a
-          >
-        </li> -->
-      </ul>
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
         <li class="nav-item" role="button">
           <i class="fab fa-facebook me-3"></i>
@@ -72,20 +25,19 @@
         </li>
 
         <li class="nav-item" role="button">
-          <span>SignOut</span>
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/login"
+            >login</a
+          >
+        </li>
+        <li class="nav-item" role="button">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/register"
+            >register</a
+          >
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<!--  -->
-<!-- <form class="d-flex" role="search">
-  <input
-    class="form-control me-2"
-    type="search"
-    placeholder="Search"
-    aria-label="Search"
-  />
-  <button class="btn btn-outline-success" type="submit">Search</button>
-</form> -->
