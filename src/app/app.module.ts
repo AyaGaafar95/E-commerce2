@@ -14,6 +14,8 @@ import { NavbarBlankComponent } from './components/navbar-blank/navbar-blank.com
 import { FooterComponent } from './components/footer/footer.component';
 import { CategriesComponent } from './components/categries/categries.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NavbarBlankComponent,
     FooterComponent,
     CategriesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AuthLayoutComponent,
+    BlankLayoutComponent
   ],
   imports: [
     BrowserModule,
