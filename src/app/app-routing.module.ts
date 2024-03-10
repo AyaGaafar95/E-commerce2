@@ -8,17 +8,31 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: 'blank',
+    component: BlankLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent, pathMatch: 'full' }, //http://localhost:4200/blank = home
+      { path: 'home', component: HomeComponent },
+      { path: 'cart', component: CartComponent }, //http://localhost:4200/blank+cart = cart comp
+      { path: 'products', component: ProductsComponent },
+      { path: 'categories', component: CategriesComponent },
+      { path: 'brands', component: BrandsComponent },
+    ],
+  },
+  {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent }, //auth + login = login componenet
+      { path: 'register', component: RegisterComponent },
+    ],
+  },
 
-  { path: 'home', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'categories', component: CategriesComponent },
-  { path: 'brands', component: BrandsComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
