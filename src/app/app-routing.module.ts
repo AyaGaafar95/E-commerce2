@@ -13,19 +13,19 @@ import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.compon
 
 const routes: Routes = [
   {
-    path: 'blank',
+    path: '',
     component: BlankLayoutComponent,
     children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' }, //http://localhost:4200/blank = home
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'cart', component: CartComponent }, //http://localhost:4200/blank+cart = cart comp
+      { path: 'cart', component: CartComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'categories', component: CategriesComponent },
       { path: 'brands', component: BrandsComponent },
     ],
   },
   {
-    path: 'auth',
+    path: '',
     component: AuthLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent }, //auth + login = login componenet

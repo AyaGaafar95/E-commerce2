@@ -1,1 +1,51 @@
-<p>register works!</p>
+<section>
+  <form [formGroup]="registerForm">
+    <div class="form-item">
+      <label for="name">name</label>
+      <input
+        formControlName="name"
+        class="form-control"
+        id="name"
+        type="text"
+      />
+    </div>
+
+    <div class="form-item">
+      <label for="email">email</label>
+      <input
+        formControlName="email"
+        class="form-control"
+        id="email"
+        type="email"
+      />
+    </div>
+    <div class="form-item">
+      <label for="password">password</label>
+      <input
+        formControlName="password"
+        class="form-control"
+        id="password"
+        type="password"
+      />
+    </div>
+    <div class="form-item">
+      <label for="rePassword">rePassword</label>
+      <input
+        formControlName="rePassword"
+        class="form-control"
+        id="rePassword"
+        type="password"
+      />
+    </div>
+    <div class="form-item">
+      <label for="phone">phone</label>
+      <input
+        formControlName="phone"
+        class="form-control"
+        id="phone"
+        type="tel"
+      />
+    </div>
+    <button class="main-btn">register</button>
+  </form>
+</section>
