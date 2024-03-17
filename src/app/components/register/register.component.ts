@@ -8,10 +8,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   registerForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    email: new FormControl(),
-    password: new FormControl(),
-    rePassword: new FormControl(),
-    phone: new FormControl(),
+    name: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20),
+    ]),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required,Validators.pattern(/^\w{6,}$/)]),
+    rePassword: new FormControl('',[Validators.required,Validators.pattern(/^\w{6,}$/)]),
+    phone: new FormControl('',[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]),
   });
+  hundleForm(): void {
+    console.log(this.registerForm);
+  }
 }
+// https://documenter.getpostman.com/view/5709532/2s93JqTRWN

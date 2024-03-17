@@ -1,5 +1,8 @@
-<section>
-  <form [formGroup]="registerForm">
+<section class="d-flex">
+  <!-- <img src="./assets/images/freshcart-logo.svg" alt="" /> -->
+  <img src="./assets/images/shopping.jpg" alt="" />
+
+  <form class="form-box" (ngSubmit)="hundleForm()" [formGroup]="registerForm">
     <div class="form-item">
       <label for="name">name</label>
       <input
@@ -46,6 +49,6 @@
         type="tel"
       />
     </div>
-    <button class="main-btn">register</button>
+    <button type="submit" class="main-btn">register</button>
   </form>
 </section>
