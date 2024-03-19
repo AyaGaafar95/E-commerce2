@@ -2,28 +2,54 @@
   <!-- <img src="./assets/images/freshcart-logo.svg" alt="" /> -->
   <img src="./assets/images/shopping.jpg" alt="" />
 
-  <form class="form-box" (ngSubmit)="hundleForm()" [formGroup]="registerForm">
+  <form class="form-box" (ngSubmit)="handleForm()" [formGroup]="registerForm">
+    <!-- <p>required:{{ registerForm.get("name")?.getError("required") | json }}</p>
+    <p>
+      minlength:{{ registerForm.get("name")?.getError("minlength") | json }}
+    </p> -->
+    <!-- this mean if there is an error in contol name in his validation minlength ...> show me this error   -->
     <div class="form-item">
-      <label for="name">name</label>
+      <label for="name">name :</label>
       <input
         formControlName="name"
         class="form-control"
         id="name"
         type="text"
       />
+      <div
+        *ngIf="
+          (registerForm.get('name')?.touched ||
+            registerForm.get('name')?.value.length > 0) &&
+          registerForm.get('name')?.errors
+        "
+        class="alert alert-danger"
+      >
+        <!-- if there is an  error will back true  -->
+        <!-- if there  is not error will back false  -->
+        <p *ngIf="registerForm.get('name')?.getError('required')">
+          name is required
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('minlength')">
+          name minLength is 3
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('maxlength')">
+          name maxLength is 20
+        </p>
+      </div>
     </div>
 
     <div class="form-item">
-      <label for="email">email</label>
+      <label for="email">email :</label>
       <input
         formControlName="email"
         class="form-control"
         id="email"
         type="email"
       />
+      <!-- <span>Please provide a valid email format (example@domain.com)</span> -->
     </div>
     <div class="form-item">
-      <label for="password">password</label>
+      <label for="password">password :</label>
       <input
         formControlName="password"
         class="form-control"
@@ -32,7 +58,7 @@
       />
     </div>
     <div class="form-item">
-      <label for="rePassword">rePassword</label>
+      <label for="rePassword">rePassword :</label>
       <input
         formControlName="rePassword"
         class="form-control"
@@ -41,7 +67,7 @@
       />
     </div>
     <div class="form-item">
-      <label for="phone">phone</label>
+      <label for="phone">phone :</label>
       <input
         formControlName="phone"
         class="form-control"

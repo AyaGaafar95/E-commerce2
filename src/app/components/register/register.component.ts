@@ -13,12 +13,21 @@ export class RegisterComponent {
       Validators.minLength(3),
       Validators.maxLength(20),
     ]),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.pattern(/^\w{6,}$/)]),
-    rePassword: new FormControl('',[Validators.required,Validators.pattern(/^\w{6,}$/)]),
-    phone: new FormControl('',[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\w{6,}$/),
+    ]),
+    rePassword: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\w{6,}$/),
+    ]),
+    phone: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^01[0125][0-9]{8}$/),
+    ]),
   });
-  hundleForm(): void {
+  handleForm(): void {
     console.log(this.registerForm);
   }
 }
