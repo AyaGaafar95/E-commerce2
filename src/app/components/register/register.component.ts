@@ -29,6 +29,9 @@ export class RegisterComponent {
   });
   handleForm(): void {
     console.log(this.registerForm);
+    if (this.registerForm.valid == true) {
+      console.log(this.registerForm.value); // this line have obj inside this => user data
+    }
   }
 }
 // https://documenter.getpostman.com/view/5709532/2s93JqTRWN

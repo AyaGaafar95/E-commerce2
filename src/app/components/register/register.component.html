@@ -19,13 +19,13 @@
       <div
         *ngIf="
           (registerForm.get('name')?.touched ||
-            registerForm.get('name')?.value.length > 0) &&
+            registerForm.get('name')?.value?.length > 0) &&
           registerForm.get('name')?.errors
         "
         class="alert alert-danger"
       >
-        <!-- if there is an  error will back true  -->
-        <!-- if there  is not error will back false  -->
+        <!-- if there is an  error will back true =>  form valid -->
+        <!-- if there  is not error will back false => form not valid  -->
         <p *ngIf="registerForm.get('name')?.getError('required')">
           name is required
         </p>
@@ -46,7 +46,23 @@
         id="email"
         type="email"
       />
-      <!-- <span>Please provide a valid email format (example@domain.com)</span> -->
+      <div
+        *ngIf="
+          (registerForm.get('email')?.touched ||
+            registerForm.get('email')?.value?.length > 0) &&
+          registerForm.get('email')?.errors
+        "
+        class="alert alert-danger"
+      >
+        <!-- if there is an  error will back true  -->
+        <!-- if there  is not error will back false  -->
+        <p *ngIf="registerForm.get('email')?.getError('required')">
+          email is required
+        </p>
+        <p *ngIf="registerForm.get('email')?.getError('email')">
+          Please provide a valid email format (example@domain.com)
+        </p>
+      </div>
     </div>
     <div class="form-item">
       <label for="password">password :</label>
@@ -56,6 +72,23 @@
         id="password"
         type="password"
       />
+      <div
+        *ngIf="
+          (registerForm.get('password')?.touched ||
+            registerForm.get('password')?.value?.length > 0) &&
+          registerForm.get('password')?.errors
+        "
+        class="alert alert-danger"
+      >
+        <!-- if there is an  error will back true  -->
+        <!-- if there  is not error will back false  -->
+        <p *ngIf="registerForm.get('password')?.getError('required')">
+          password is required
+        </p>
+        <p *ngIf="registerForm.get('password')?.getError('pattern')">
+          password minLength is 6
+        </p>
+      </div>
     </div>
     <div class="form-item">
       <label for="rePassword">rePassword :</label>
@@ -65,6 +98,23 @@
         id="rePassword"
         type="password"
       />
+      <div
+        *ngIf="
+          (registerForm.get('rePassword')?.touched ||
+            registerForm.get('rePassword')?.value?.length > 0) &&
+          registerForm.get('rePassword')?.errors
+        "
+        class="alert alert-danger"
+      >
+        <!-- if there is an  error will back true  -->
+        <!-- if there  is not error will back false  -->
+        <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+          rePassword is required
+        </p>
+        <p *ngIf="registerForm.get('rePassword')?.getError('pattern')">
+          rePassword minLength is 6
+        </p>
+      </div>
     </div>
     <div class="form-item">
       <label for="phone">phone :</label>
@@ -74,7 +124,26 @@
         id="phone"
         type="tel"
       />
+      <div
+        *ngIf="
+          (registerForm.get('phone')?.touched ||
+            registerForm.get('phone')?.value?.length > 0) &&
+          registerForm.get('phone')?.errors
+        "
+        class="alert alert-danger"
+      >
+        <!-- if there is an  error will back true  -->
+        <!-- if there  is not error will back false  -->
+        <p *ngIf="registerForm.get('phone')?.getError('required')">
+          phone is required
+        </p>
+        <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+          Please provide only egypt phone number
+        </p>
+      </div>
     </div>
-    <button type="submit" class="main-btn">register</button>
+    <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
+      register
+    </button>
   </form>
 </section>
