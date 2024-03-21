@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  constructor(private authService: AuthService) {}
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
@@ -32,6 +34,15 @@ export class RegisterComponent {
     if (this.registerForm.valid == true) {
       console.log(this.registerForm.value); // this line have obj inside this => user data
     }
+    const data = this.registerForm.value;
+    this.authService.register(data).subscribe({
+      next: (Response) => {
+        console.log(Response);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
 // https://documenter.getpostman.com/view/5709532/2s93JqTRWN
