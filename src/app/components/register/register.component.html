@@ -145,5 +145,6 @@
     <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
       register
     </button>
+    <p *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</p>
   </form>
 </section>

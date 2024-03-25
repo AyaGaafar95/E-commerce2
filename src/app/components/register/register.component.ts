@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
+  errorMessage: string = '';
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
@@ -32,15 +34,19 @@ export class RegisterComponent {
   handleForm(): void {
     console.log(this.registerForm);
     if (this.registerForm.valid == true) {
-      console.log(this.registerForm.value); // this line have obj inside this => user data
+      console.log(this.registerForm.value); // this line have obj inside this obj => user data
     }
     const data = this.registerForm.value;
     this.authService.register(data).subscribe({
       next: (Response) => {
         console.log(Response);
+        if (Response.message === 'success') {
+          this.router.navigate(['/login']);
+        }
       },
       error: (err) => {
         console.log(err);
+        this.errorMessage = err.error.message;
       },
     });
   }
