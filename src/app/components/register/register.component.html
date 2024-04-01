@@ -90,7 +90,8 @@
         </p>
       </div>
     </div>
-    <div class="form-item">
+
+    <!-- <div class="form-item">
       <label for="rePassword">rePassword :</label>
       <input
         formControlName="rePassword"
@@ -105,18 +106,18 @@
           registerForm.get('rePassword')?.errors
         "
         class="alert alert-danger"
-      >
-        <!-- if there is an  error will back true  -->
-        <!-- if there  is not error will back false  -->
-        <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+      > -->
+    <!-- if there is an  error will back true  -->
+    <!-- if there  is not error will back false  -->
+    <!-- <p *ngIf="registerForm.get('rePassword')?.getError('required')">
           rePassword is required
         </p>
         <p *ngIf="registerForm.get('rePassword')?.getError('pattern')">
           rePassword minLength is 6
         </p>
       </div>
-    </div>
-    <div class="form-item">
+    </div> -->
+    <!-- <div class="form-item">
       <label for="phone">phone :</label>
       <input
         formControlName="phone"
@@ -131,17 +132,17 @@
           registerForm.get('phone')?.errors
         "
         class="alert alert-danger"
-      >
-        <!-- if there is an  error will back true  -->
-        <!-- if there  is not error will back false  -->
-        <p *ngIf="registerForm.get('phone')?.getError('required')">
+      > -->
+    <!-- if there is an  error will back true  -->
+    <!-- if there  is not error will back false  -->
+    <!-- <p *ngIf="registerForm.get('avatar')?.getError('required')">
           phone is required
         </p>
         <p *ngIf="registerForm.get('phone')?.getError('pattern')">
           Please provide only egypt phone number
         </p>
       </div>
-    </div>
+    </div> -->
     <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
       register
     </button>

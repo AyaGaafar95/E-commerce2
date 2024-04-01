@@ -32,7 +32,7 @@ export class LoginComponent {
       next: (Response) => {
         console.log(Response);
         if (Response.message === 'success') {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/home']);
         }
       },
       error: (err) => {

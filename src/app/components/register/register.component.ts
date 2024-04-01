@@ -22,14 +22,15 @@ export class RegisterComponent {
       Validators.required,
       Validators.pattern(/^\w{6,}$/),
     ]),
-    rePassword: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^\w{6,}$/),
-    ]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^01[0125][0-9]{8}$/),
-    ]),
+    // avatar: new FormControl('', [Validators.required]),
+    // rePassword: new FormControl('', [
+    //   Validators.required,
+    //   Validators.pattern(/^\w{6,}$/),
+    // ]),
+    // phone: new FormControl('', [
+    //   Validators.required,
+    //   Validators.pattern(/^01[0125][0-9]{8}$/),
+    // ]),
   });
   handleForm(): void {
     console.log(this.registerForm);
