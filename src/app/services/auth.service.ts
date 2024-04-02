@@ -6,17 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  private baseUrl = 'https://jsonplaceholder.typicode.com';
   constructor(private httpclient: HttpClient) {}
 
-  register(userData: object): Observable<any> {
-    return this.httpclient.post(`https://fakestoreapi.com/users`, userData);
+  // register(userData: object): Observable<any> {
+  //   return this.httpclient.post(`https://fakestoreapi.com/users`, userData);
+  // }
+
+  // login(userData: object): Observable<any> {
+  //   return this.httpclient.post(
+  //     `https://fakestoreapi.com/auth/login`,
+  //     userData
+  //   );
+  // }
+  login(credentials: any): Observable<any> {
+    return this.httpclient.post<any>(`${this.baseUrl}/login`, credentials);
   }
 
-  login(userData: object): Observable<any> {
-    return this.httpclient.post(
-      `https://fakestoreapi.com/auth/login`,
-      userData
-    );
+  register(user: any): Observable<any> {
+    return this.httpclient.post<any>(`${this.baseUrl}/users`, user);
   }
 }
 // `https://ecommerce.routemisr.com/api/v1/auth/signup`
