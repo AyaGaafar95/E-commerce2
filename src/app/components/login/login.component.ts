@@ -23,22 +23,22 @@ export class LoginComponent {
     ]),
   });
   handleForm(): void {
-    console.log(this.loginForm);
-    if (this.loginForm.valid == true) {
-      console.log(this.loginForm.value);
-    }
-    const data = this.loginForm.value;
-    this.authService.login(data).subscribe({
-      next: (Response) => {
-        console.log(Response);
-        if (Response.message === 'success') {
-          this.router.navigate(['/home']);
-        }
-      },
-      error: (err) => {
-        console.log(err);
-        this.errorMessage = err.error.message;
-      },
-    });
+    // console.log(this.loginForm);
+    // if (this.loginForm.valid == true) {
+    //   console.log(this.loginForm.value);
+    // }
+    // const data = this.loginForm.value;
+    // this.authService.login(data).subscribe({
+    //   next: (Response) => {
+    //     console.log(Response);
+    //     if (Response.message === 'success') {
+    //       this.router.navigate(['/home']);
+    //     }
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //     this.errorMessage = err.error.message;
+    //   },
+    // });
   }
 }
