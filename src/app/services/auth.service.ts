@@ -12,7 +12,7 @@ export class AuthService {
   private baseUrl = 'https://jsonplaceholder.typicode.com';
   constructor(
     private httpclient: HttpClient,
-    private fireauth: AngularFireAuth,
+    // private fireauth: AngularFireAuth,
     private router: Router
   ) {}
 
@@ -34,43 +34,43 @@ export class AuthService {
   //     userData
   //   );
   // }
-  login(email: string, passowrd: string) {
-    this.fireauth.signInWithEmailAndPassword(email, passowrd).then(
-      () => {
-        localStorage.setItem('token', 'true');
-        this.router.navigate(['/home']);
-      },
-      (error) => {
-        alert(error.message);
-        this.router.navigate(['/login']);
-      }
-    );
-  }
+  // login(email: string, passowrd: string) {
+  //   this.fireauth.signInWithEmailAndPassword(email, passowrd).then(
+  //     () => {
+  //       localStorage.setItem('token', 'true');
+  //       this.router.navigate(['/home']);
+  //     },
+  //     (error) => {
+  //       alert(error.message);
+  //       this.router.navigate(['/login']);
+  //     }
+  //   );
+  // }
   // register
-  register(email: string, password: string) {
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(
-      () => {
-        alert('Registration successful');
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        alert(error.message);
-        this.router.navigate(['/register']);
-      }
-    );
-  }
+  // register(email: string, password: string) {
+  //   this.fireauth.createUserWithEmailAndPassword(email, password).then(
+  //     () => {
+  //       alert('Registration successful');
+  //       this.router.navigate(['/login']);
+  //     },
+  //     (error) => {
+  //       alert(error.message);
+  //       this.router.navigate(['/register']);
+  //     }
+  //   );
+  // }
 
   // sign out
-  logOut() {
-    this.fireauth.signOut().then(
-      () => {
-        localStorage.removeItem('token');
-        this.router.navigate(['/login']);
-      },
-      (err) => {
-        alert(err.message);
-      }
-    );
-  }
+  // logOut() {
+  //   this.fireauth.signOut().then(
+  //     () => {
+  //       localStorage.removeItem('token');
+  //       this.router.navigate(['/login']);
+  //     },
+  //     (err) => {
+  //       alert(err.message);
+  //     }
+  //   );
+  // }
 }
 // `https://ecommerce.routemisr.com/api/v1/auth/signup`

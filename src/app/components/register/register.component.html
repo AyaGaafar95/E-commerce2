@@ -1,42 +1,9 @@
-<section class="d-flex">
-  <!-- <img src="./assets/images/freshcart-logo.svg" alt="" /> -->
-  <img src="./assets/images/shopping.jpg" alt="" />
+<!-- <section class="d-flex">
   <h4>register</h4>
+
+  <img src="./assets/images/shopping.jpg" alt="" />
   <form class="form-box" (ngSubmit)="handleForm()" [formGroup]="loginForm">
-    <!-- <p>required:{{ loginForm.get("name")?.getError("required") | json }}</p>
-    <p>
-      minlength:{{ loginForm.get("name")?.getError("minlength") | json }}
-    </p> -->
-    <!-- this mean if there is an error in contol name in his validation minlength ...> show me this error   -->
-    <div class="form-item">
-      <label for="name">name :</label>
-      <input
-        formControlName="name"
-        class="form-control"
-        id="name"
-        type="text"
-      />
-      <div
-        *ngIf="
-          (loginForm.get('name')?.touched ||
-            loginForm.get('name')?.value?.length > 0) &&
-          loginForm.get('name')?.errors
-        "
-        class="alert alert-danger"
-      >
-        <!-- if there is an  error will back true =>  form valid -->
-        <!-- if there  is not error will back false => form not valid  -->
-        <p *ngIf="loginForm.get('name')?.getError('required')">
-          name is required
-        </p>
-        <p *ngIf="loginForm.get('name')?.getError('minlength')">
-          name minLength is 3
-        </p>
-        <p *ngIf="loginForm.get('name')?.getError('maxlength')">
-          name maxLength is 20
-        </p>
-      </div>
-    </div>
+
 
     <div class="form-item">
       <label for="password">email :</label>
@@ -59,13 +26,7 @@
         [(ngModel)]="password"
       />
     </div>
-
-    <button
-      [disabled]="loginForm.invalid"
-      type="submit"
-      class="main-btn"
-      (click)="register()"
-    >
+    <button type="submit" class="main-btn" (click)="register()">
       register
     </button>
     <div class="row">
@@ -76,5 +37,59 @@
       </div>
     </div>
     <p *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</p>
+  </form>
+</section> -->
+<section class="w-75 mx-auto">
+  <form
+    [formGroup]="registerForm"
+    action="
+  "
+  >
+    <div class="form-item">
+      <label for="name" for="">name:</label>
+      <input
+        formControlName="name"
+        id="name"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-item">
+      <label for="email" for="">email:</label>
+      <input
+        formControlName="email"
+        id="email"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-item">
+      <label for="password" for="">password:</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="password"
+        class="form-control"
+      />
+    </div>
+    <div class="form-item">
+      <label for="rePassword" for="">rePassword:</label>
+      <input
+        formControlName="rePassword"
+        id="rePassword"
+        type="password"
+        class="form-control"
+      />
+    </div>
+    <div class="form-item">
+      <label for="phone" for="">phone:</label>
+      <input
+        formControlName="phone"
+        id="phone"
+        type="tell"
+        class="form-control"
+      />
+    </div>
+    <button class="main-btn">Register</button>
   </form>
 </section>
