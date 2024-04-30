@@ -54,6 +54,7 @@ export class AuthService {
         this.router.navigate(['/login']);
       },
       (error) => {
+        alert(error.message);
         this.router.navigate(['/register']);
       }
     );

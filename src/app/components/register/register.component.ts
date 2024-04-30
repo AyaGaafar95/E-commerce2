@@ -10,39 +10,31 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) {}
+  email: string = '';
+  password: string = '';
   errorMessage: string = '';
-  registerForm: FormGroup = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(20),
     ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
       Validators.pattern(/^\w{6,}$/),
     ]),
-    // avatar: new FormControl('', [Validators.required]),
-    // rePassword: new FormControl('', [
-    //   Validators.required,
-    //   Validators.pattern(/^\w{6,}$/),
-    // ]),
-    // phone: new FormControl('', [
-    //   Validators.required,
-    //   Validators.pattern(/^01[0125][0-9]{8}$/),
-    // ]),
   });
   handleForm(): void {
-    // console.log(this.registerForm);
-    // if (this.registerForm.valid == true) {
-    //   console.log(this.registerForm.value); // this line have obj inside this obj => user data
+    // console.log(this.loginForm);
+    // if (this.loginForm.valid == true) {
+    //   console.log(this.loginForm.value);
     // }
-    // const data = this.registerForm.value;
-    // this.authService.register(data).subscribe({
+    // const data = this.loginForm.value;
+    // this.authService.login(data).subscribe({
     //   next: (Response) => {
     //     console.log(Response);
     //     if (Response.message === 'success') {
-    //       this.router.navigate(['/login']);
+    //       this.router.navigate(['/home']);
     //     }
     //   },
     //   error: (err) => {
@@ -50,6 +42,19 @@ export class RegisterComponent {
     //     this.errorMessage = err.error.message;
     //   },
     // });
+  }
+  register() {
+    if ((this.email = '')) {
+      alert('please inter email');
+      return;
+    }
+    if ((this.password = '')) {
+      alert('please inter password');
+      return;
+    }
+    this.authService.login(this.email, this.password);
+    this.email = '';
+    this.password = '';
   }
 }
 // https://documenter.getpostman.com/view/5709532/2s93JqTRWN

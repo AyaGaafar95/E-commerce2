@@ -1,6 +1,7 @@
 <section class="d-flex">
   <!-- <img src="./assets/images/freshcart-logo.svg" alt="" /> -->
   <img src="./assets/images/shopping.jpg" alt="" />
+  <h4>login</h4>
 
   <form class="form-box" (ngSubmit)="handleForm()" [formGroup]="loginForm">
     <!-- <p>required:{{ loginForm.get("name")?.getError("required") | json }}</p>
@@ -39,12 +40,41 @@
     </div>
 
     <div class="form-item">
+      <label for="password">email :</label>
+      <input
+        formControlName="password"
+        class="form-control"
+        id="password"
+        type="password"
+        [(ngModel)]="email"
+      />
+      <!-- <div
+        *ngIf="
+          (loginForm.get('email')?.touched ||
+            loginForm.get('email')?.value?.length > 0) &&
+          loginForm.get('email')?.errors
+        "
+        class="alert alert-danger"
+      >
+        if there is an  error will back true
+       if there  is not error will back false
+        <p *ngIf="loginForm.get('email')?.getError('required')">
+          email is required
+        </p>
+        <p *ngIf="loginForm.get('email')?.getError('pattern')">
+          email minLength is 6
+        </p>
+      </div> -->
+    </div>
+
+    <div class="form-item">
       <label for="password">password :</label>
       <input
         formControlName="password"
         class="form-control"
         id="password"
         type="password"
+        [(ngModel)]="password"
       />
       <div
         *ngIf="
@@ -65,9 +95,27 @@
       </div>
     </div>
 
-    <button [disabled]="loginForm.invalid" type="submit" class="main-btn">
+    <!-- <button [disabled]="loginForm.invalid" type="submit" class="main-btn">
+      logIn
+    </button> -->
+    <button
+      [disabled]="loginForm.invalid"
+      type="submit"
+      class="main-btn"
+      (click)="login()"
+    >
       logIn
     </button>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="/register"
+          >create account ? <span class="text-danger">register</span>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a href="">forget password ? </a>
+      </div>
+    </div>
     <p *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</p>
   </form>
 </section>

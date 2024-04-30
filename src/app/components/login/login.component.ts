@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
+  email: string = '';
+  password: string = '';
   errorMessage: string = '';
   loginForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
@@ -40,5 +42,18 @@ export class LoginComponent {
     //     this.errorMessage = err.error.message;
     //   },
     // });
+  }
+  login() {
+    if ((this.email = '')) {
+      alert('please inter email');
+      return;
+    }
+    if ((this.password = '')) {
+      alert('please inter password');
+      return;
+    }
+    this.authService.login(this.email, this.password);
+    this.email = '';
+    this.password = '';
   }
 }
