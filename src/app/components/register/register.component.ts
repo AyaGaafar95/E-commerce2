@@ -14,17 +14,30 @@ export class RegisterComponent {
   // بتعمل جروبيج لمجموعه انبوتس registerForm
   //  كل انبوت او  بروبرتي = هي فورم كنترول
   registerForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    rePassword: new FormControl(''),
-    phone: new FormControl(''),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20),
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\w{6,}$/),
+    ]),
+    rePassword: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\w{6,}$/),
+    ]),
+    phone: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^01[0125][0-9]{8}$/),
+    ]),
   });
 
-  // email: string = '';
-  // password: string = '';
   errorMessage: string = '';
-
+  handleForm(): void {
+    console.log(this.registerForm.value);
+  }
   // register() {
   //   if ((this.email = '')) {
   //     alert('please inter email');

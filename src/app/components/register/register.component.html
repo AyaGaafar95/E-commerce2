@@ -41,10 +41,12 @@
 </section> -->
 <section class="w-75 mx-auto">
   <form
+    (ngSubmit)="handleForm()"
     [formGroup]="registerForm"
     action="
   "
   >
+    <p>{{ registerForm.get("name")?.getError("minlength") | json }}</p>
     <div class="form-item">
       <label for="name" for="">name:</label>
       <input
@@ -90,6 +92,6 @@
         class="form-control"
       />
     </div>
-    <button class="main-btn">Register</button>
+    <button type="submit" class="main-btn">Register</button>
   </form>
 </section>
