@@ -10,7 +10,39 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
+  // ده الاوبجكت اللي هيروح للباك registerForm
+  // بتعمل جروبيج لمجموعه انبوتس registerForm
+  //  كل انبوت او  بروبرتي = هي فورم كنترول
+  registerForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\w{6,}$/),
+    ]),
+  });
 
+  errorMessage: string = '';
+  handleForm(): void {
+    if (this.registerForm.valid == true) {
+      // console.log(this.registerForm.value);
+      this.authService.login(this.registerForm.value).subscribe(
+        (response) => {
+          console.log(response);
+          localStorage.setItem('_toaken', response.token);
+          this.authService.saveUserData();
+          if (response.message === 'success') {
+            this.router.navigate(['/home']);
+          }
+        },
+        (error) => {
+          console.log(error);
+          this.errorMessage = error.error.message;
+
+          // Error handling code here
+        }
+      );
+    }
+  }
   // login() {
   //   if ((this.email = '')) {
   //     alert('please inter email');

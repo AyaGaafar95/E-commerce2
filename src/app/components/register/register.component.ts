@@ -36,7 +36,23 @@ export class RegisterComponent {
 
   errorMessage: string = '';
   handleForm(): void {
-    console.log(this.registerForm.value);
+    if (this.registerForm.valid == true) {
+      // console.log(this.registerForm.value);
+      this.authService.register(this.registerForm.value).subscribe(
+        (response) => {
+          console.log(response);
+          if (response.message === 'success') {
+            this.router.navigate(['/login']);
+          }
+        },
+        (error) => {
+          console.log(error);
+          this.errorMessage = error.error.message;
+
+          // Error handling code here
+        }
+      );
+    }
   }
   // register() {
   //   if ((this.email = '')) {
