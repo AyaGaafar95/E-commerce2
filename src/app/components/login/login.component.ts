@@ -20,7 +20,7 @@ export class LoginComponent {
       Validators.pattern(/^\w{6,}$/),
     ]),
   });
-
+  userName = '';
   errorMessage: string = '';
   handleForm(): void {
     if (this.registerForm.valid == true) {
@@ -30,8 +30,11 @@ export class LoginComponent {
           console.log(response);
           localStorage.setItem('_toaken', response.token);
           this.authService.saveUserData();
+          // this.userName = this.authService.userInfo;
           if (response.message === 'success') {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/home'], {
+              queryParams: { userName: this.userName },
+            });
           }
         },
         (error) => {

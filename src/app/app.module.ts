@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { CuttextPipe } from './components/pipe/cuttext.pipe';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,10 @@ import { environment } from 'src/environments/environment';
     NotFoundComponent,
     AuthLayoutComponent,
     BlankLayoutComponent,
+    CuttextPipe,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

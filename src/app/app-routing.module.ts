@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
+import { AuthGuard } from './components/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,11 +18,19 @@ const routes: Routes = [
     component: BlankLayoutComponent,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'categories', component: CategriesComponent },
-      { path: 'brands', component: BrandsComponent },
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+      {
+        path: 'products',
+        component: ProductsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'categories',
+        component: CategriesComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'brands', component: BrandsComponent, canActivate: [AuthGuard] },
     ],
   },
   {

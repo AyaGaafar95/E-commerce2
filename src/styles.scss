@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
-$main-color: #0aad0a;
+$main-color: #5fbdff;
 $light-color: #f0f3f2;
 $shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
   rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
@@ -9,8 +9,6 @@ $shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
 $font-family: "Encode Sans Expanded", sans-serif;
 $rating-color: #ffc908;
 $main-transition: 0.8s;
-
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -21,9 +19,9 @@ $main-transition: 0.8s;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #049704f7;
+  background-color: #5fbdff;
   border-radius: 50px;
-  box-shadow: 0 0 20px 50px #049704f7;
+  box-shadow: 0 0 20px 50px #5fbdff;
   border-radius: 2px;
 }
 
@@ -60,9 +58,6 @@ body {
   color: $light-color;
 }
 
-
-
-
 .bg-main {
   background-color: $main-color !important;
 }
@@ -72,7 +67,7 @@ body {
 }
 
 .main-btn {
-  border: unset;  //delete border around the btn
+  border: unset; //delete border around the btn
   cursor: pointer;
   color: #fff !important;
   background-color: $main-color !important;
@@ -81,19 +76,23 @@ body {
   border-radius: 5px;
 
   &:hover {
-    background-color: #08e208 !important;
+    background-color: #5fbdff !important;
   }
 
   &:disabled {
-    background-color: #067a0663 !important;
+    background-color: #35a8ef63 !important;
     color: #ffffff8e !important;
     cursor: not-allowed;
   }
 }
-
+.svg-logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  color: #5fbdff; /* Set your desired color */
+}
 input:focus {
-  box-shadow: 0 0 0 0.25rem rgb(10 173 10 / 39%) !important;
-  border-color: #0aad0a !important;
+  box-shadow: 0 0 0 0.25rem rgba(16, 124, 196, 0.39) !important;
+  border-color: #5fbdff !important;
 }
 
 .product {
@@ -119,7 +118,7 @@ input:focus {
 }
 
 .ngx-pagination .current {
-  background: #0aad0a !important;
+  background: #5fbdff !important;
   border-radius: 5px !important;
 }
 
@@ -132,7 +131,7 @@ input:focus {
 
 .ngx-pagination a,
 .ngx-pagination button {
-  color: #18aa1c !important;
+  color: #5fbdff !important;
 }
 
 .toast-success {
@@ -141,7 +140,6 @@ input:focus {
   right: 0 !important;
 }
 
-
 /*
-  TODO: 
+  TODO:
 */
