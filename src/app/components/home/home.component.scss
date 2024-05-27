@@ -1,5 +1,33 @@
-// .main-btn {
-//   margin-block: 20px;
-// }
-.card {
+/* Ensure row uses flexbox for alignment */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Make sure all col-* elements grow equally */
+.row > div {
+  display: flex;
+}
+
+/* Product card styling */
+.product {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Ensure the main content area grows to fill the available space */
+.product > div[role="button"] {
+  flex-grow: 1;
+}
+
+/* Add some bottom margin to the button if necessary */
+.main-btn {
+  margin-top: auto;
+}
+.name {
+  font-weight: bold;
+}
+.product-details {
+  margin-top: 15px;
 }

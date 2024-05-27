@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductsService {
-  baseUrl: string = 'https://ecommerce.routemisr.com';
+  baseUrl: string = 'https://ecommerce.routemisr.com/api/v1/';
 
   constructor(private httpclient: HttpClient) {}
 
   getAllProducts(): Observable<any> {
-    return this.httpclient.get(this.baseUrl + '/api/v1/products');
+    return this.httpclient.get(this.baseUrl + 'products');
+  }
+  getProductDetails(id: string): Observable<any> {
+    return this.httpclient.get(this.baseUrl + `products/${id}`);
   }
 }

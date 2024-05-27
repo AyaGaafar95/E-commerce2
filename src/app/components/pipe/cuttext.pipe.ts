@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CuttextPipe implements PipeTransform {
   transform(Title: string): string {
-    return Title.split(' ').slice(0, 3).join(' ');
+    return Title.split(' ').slice(0, 2).join(' ');
   }
 }
