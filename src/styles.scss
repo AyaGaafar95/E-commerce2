@@ -25,6 +25,9 @@ $main-transition: 0.8s;
   border-radius: 2px;
 }
 
+* {
+  outline: #ffc908;
+}
 .nav-link {
   transition: unset !important;
 }
@@ -66,6 +69,10 @@ body {
   background-color: $light-color !important;
 }
 
+.product {
+  border: #5fbdff 1px solid;
+  box-shadow: $shadow;
+}
 .main-btn {
   border: unset; //delete border around the btn
   cursor: pointer;

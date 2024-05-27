@@ -11,6 +11,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { AuthGuard } from './components/guards/auth.guard';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,12 @@ const routes: Routes = [
         component: ProductsComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'details',
+        component: ProductDetailsComponent,
+        canActivate: [AuthGuard],
+      },
+
       {
         path: 'categories',
         component: CategriesComponent,

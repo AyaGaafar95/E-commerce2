@@ -1,12 +1,51 @@
 <!-- <h1>welcome back {{ name }}</h1> -->
-<section>
+<!-- <section>
   <div class="container">
     <div class="row g-4">
       <div
         *ngFor="let product of productsArray"
         class="col-sm-6 col-md-4 col-lg-2"
       >
-        <div class="card py-2 px-3">
+        <div class="product py-2 px-3">
+
+
+
+          <div role="button" routerLink="/details">
+            <img class="w-100" [src]="product.imageCover" alt="" />
+            <div class="product-details">
+              <h4 class="font-sm text-main">{{ product.category.name }}</h4>
+              <h3 class="h6">{{ product.title | cuttext }}</h3>
+              <div class="d-flex justify-content-between">
+                <span>{{ product.price | currency : "EGP" }} </span>
+                <span
+                  ><i class="fa-solid fa-star rating-color"></i
+                  >{{ product.ratingsAverage }}
+                </span>
+              </div>
+            </div>
+
+            <button class="main-btn w-100" #addBtn>Add TO Cart</button>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!--
+******************** -->
+<section>
+  <div class="row w-100 g-4 m-auto">
+    <div
+      *ngFor="let product of productsArray"
+      class="col-sm-6 col-md-4 col-lg-2"
+    >
+      <div class="product py-2 px-3">
+        <div role="button" routerLink="/details">
           <img class="w-100" [src]="product.imageCover" alt="" />
           <div class="product-details">
             <h4 class="font-sm text-main">{{ product.category.name }}</h4>
@@ -18,10 +57,10 @@
                 >{{ product.ratingsAverage }}
               </span>
             </div>
-
-            <button class="main-btn w-100">Add TO Cart</button>
           </div>
         </div>
+
+        <button class="main-btn w-100" #addBtn>Add TO Cart</button>
       </div>
     </div>
   </div>
