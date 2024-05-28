@@ -13,7 +13,7 @@ export class ProductsService {
   getAllProducts(): Observable<any> {
     return this.httpclient.get(this.baseUrl + 'products');
   }
-  getProductDetails(id: string): Observable<any> {
+  getProductDetailsById(id: string): Observable<any> {
     return this.httpclient.get(this.baseUrl + `products/${id}`);
   }
 }

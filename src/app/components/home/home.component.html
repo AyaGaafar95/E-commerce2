@@ -4,8 +4,8 @@
       *ngFor="let product of productsArray"
       class="col-sm-6 col-md-4 col-lg-2"
     >
-      <!-- take id from productsArray data -->
-      <!-- any product have aspecial id -->
+      <!-- take id from products array data -->
+      <!-- any product has a special id -->
       <div class="product py-2 px-3">
         <div role="button" [routerLink]="['/details', product._id]">
           <img class="w-100" [src]="product.imageCover" alt="" />
