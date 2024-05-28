@@ -13,7 +13,7 @@ export class LoginComponent {
   // ده الاوبجكت اللي هيروح للباك registerForm
   // بتعمل جروبيج لمجموعه انبوتس registerForm
   //  كل انبوت او  بروبرتي = هي فورم كنترول
-  registerForm: FormGroup = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -23,9 +23,9 @@ export class LoginComponent {
   userName = '';
   errorMessage: string = '';
   handleForm(): void {
-    if (this.registerForm.valid == true) {
-      // console.log(this.registerForm.value);
-      this.authService.login(this.registerForm.value).subscribe(
+    if (this.loginForm.valid == true) {
+      // console.log(this.loginForm.value);
+      this.authService.login(this.loginForm.value).subscribe(
         (response) => {
           console.log(response);
           localStorage.setItem('_toaken', response.token);

@@ -11,16 +11,30 @@
 
 /* Product card styling */
 .product {
+  border: 1px solid #5fbdff !important;
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 20px;
 }
 
 /* Ensure the main content area grows to fill the available space */
 .product > div[role="button"] {
   flex-grow: 1;
 }
-
+.product .image-container {
+  overflow: hidden;
+}
+.product:hover img {
+  transform: scale(1.2);
+  transition: 1.5s;
+  overflow: hidden;
+}
+.product img {
+  transition: 1.5s;
+}
 /* Add some bottom margin to the button if necessary */
 .main-btn {
   margin-top: auto;

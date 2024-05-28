@@ -1,6 +1,6 @@
-<section>
+<section class="w-75 mx-auto shadow border border-1 rounded-3 p-4 my-4">
   <div class="row w-100 align-items-center g-4">
-    <div class="col-md-3">
+    <div class="col-md-3 my-4">
       <img class="w-100" [src]="productDetailsObj.imageCover" alt="" />
     </div>
     <div class="col-md-8">
@@ -8,8 +8,57 @@
         <h3>{{ productDetailsObj.title }}</h3>
         <p>{{ productDetailsObj.description }}</p>
         <p>{{ productDetailsObj.category.name }}</p>
-        <button class="main-btn w-100">+ Add Cart</button>
+        <button class="main-btn w-75">+ Add Cart</button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- *********************************** -->
+<!--
+<section
+  *ngIf="productDetails"
+  class="w-75 mx-auto shadow border border-1 rounded-3 overflow-hidden p-4 my-4"
+>
+  <div class="row align-items-center g-4">
+    <div class="col-md-3">
+      <owl-carousel-o [options]="detailsOptions">
+        <ng-container *ngFor="let slide of productDetails.images">
+          <ng-template carouselSlide>
+            <img
+              [src]="slide"
+              [alt]="productDetails.title"
+              [title]="productDetails.title"
+            />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-9">
+      <div>
+        <h2 class="h4">{{ productDetails.title }}</h2>
+        <p class="text-muted small">{{ productDetails.description }}</p>
+
+        <span>{{ productDetails.category.name }}</span>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="small">{{
+            productDetails.price | currency : "E£ "
+          }}</span>
+          <p class="m-0">
+            <i class="fas fa-star rating-color me-1"></i>
+            <span class="text-muted"> {{ productDetails.ratingsAverage }}</span>
+          </p>
+        </div>
+
+        <button
+          (click)="addProduct(productDetails._id, addBtn)"
+          class="main-btn my-2 w-100 my-3"
+          #addBtn
+        >
+          + Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</section> -->
