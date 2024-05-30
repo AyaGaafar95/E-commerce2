@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import { CuttextPipe } from './components/pipe/cuttext.pipe';
+import { CuttextPipe } from './core/services/pipe/cuttext.pipe';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({

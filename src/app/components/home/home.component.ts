@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProductsService } from 'src/app/services/products.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +17,13 @@ export class HomeComponent {
   userName: string | undefined;
   name = '';
   productsArray: any[] = [];
+  categoriesArray: any[] = [];
   ngOnInit(): void {
-    this.catshName();
+    this.catshUserName();
     this.getAllproducts();
+    this.getCategories();
   }
-  catshName() {
+  catshUserName() {
     this.name = this.authService.userInfo;
     this.route.queryParamMap.subscribe((params) => {
       this.userName = this.userName !== null ? this.userName : undefined;
@@ -35,6 +37,17 @@ export class HomeComponent {
       },
       error: (err) => {
         console.log(err);
+      },
+    });
+  }
+  getCategories() {
+    this.productsService.getProductCategories().subscribe({
+      next: (result) => {
+        console.log('this is categories', result.data);
+        this.categoriesArray = result.data;
+      },
+      error: (error) => {
+        console.log(error);
       },
     });
   }
