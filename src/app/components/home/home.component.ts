@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Categories } from 'src/app/core/services/interfaces/categories';
 import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class HomeComponent {
   userName: string | undefined;
   name = '';
   productsArray: any[] = [];
-  categoriesArray: any[] = [];
+  categoriesArray: Categories[] = [];
   ngOnInit(): void {
     this.catshUserName();
     this.getAllproducts();
@@ -51,4 +53,31 @@ export class HomeComponent {
       },
     });
   }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 2,
+      },
+      400: {
+        items: 3,
+      },
+      740: {
+        items: 4,
+      },
+      940: {
+        items: 6,
+      },
+    },
+    nav: false,
+  };
 }

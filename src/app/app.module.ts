@@ -24,6 +24,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { CuttextPipe } from './core/services/pipe/cuttext.pipe';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    CarouselModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
