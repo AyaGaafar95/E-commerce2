@@ -1,5 +1,57 @@
-<section>
-  <h2>shio Category</h2>
+<!--main slaider carousel -->
+<section class="d-flex">
+  <div class="col-md-9">
+    <owl-carousel-o [options]="mainSlidOptions" class="w-70">
+      <ng-template carouselSlide>
+        <img
+          src="./assets/images/main-slider-1.jpeg"
+          height="400"
+          alt="main-slider 1"
+        />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img
+          src="./assets/images/main-slider-2.jpeg"
+          height="400"
+          alt="main-slider 2"
+        />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img
+          src="./assets/images/main-slider-3.jpeg"
+          height="400"
+          alt="main-slider 3"
+        />
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="col-md-3">
+    <owl-carousel-o [options]="mainSlidOptions">
+      <ng-template carouselSlide>
+        <div>
+          <img
+            height="200"
+            src="./assets/images/slide-1.jpeg"
+            alt="slide 1"
+            class="half-height-img"
+          />
+        </div>
+        <div style="height: 50%">
+          <img
+            height="200"
+            src="./assets/images/slide-2.jpeg"
+            alt="slide 2"
+            class="half-height-img"
+          />
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</section>
+
+<!--Category slaider carousel -->
+<section class="ml-25">
+  <h2 class="text-center">All Category</h2>
   <owl-carousel-o [options]="customOptions">
     <ng-container *ngFor="let obj of categoriesArray">
       <ng-template carouselSlide>
@@ -14,7 +66,7 @@
     </ng-container>
   </owl-carousel-o>
 </section>
-
+<!-- All products -->
 <section>
   <div class="row w-100 g-4 m-auto">
     <div
@@ -30,7 +82,7 @@
           </div>
           <div class="product-details">
             <h4 class="name fs-6 text-main">{{ product.category.name }}</h4>
-            <h3 class="h6">{{ product.title | cuttext }}</h3>
+            <h3 class="disc-text h6">{{ product.title | cuttext }}</h3>
             <div class="d-flex justify-content-between">
               <span>{{ product.price | currency : "E£" }} </span>
               <span

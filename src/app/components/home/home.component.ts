@@ -75,9 +75,24 @@ export class HomeComponent {
         items: 4,
       },
       940: {
-        items: 6,
+        items: 5,
       },
     },
     nav: false,
+  };
+
+  mainSlidOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    items: 1,
+    nav: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplaySpeed: 1000,
   };
 }

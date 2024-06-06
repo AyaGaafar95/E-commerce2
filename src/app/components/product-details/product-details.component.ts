@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
@@ -38,4 +39,24 @@ export class ProductDetailsComponent implements OnInit {
       },
     });
   }
+
+  // add imagePath options
+  imageOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplaySpeed: 1000,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+    },
+    nav: false,
+  };
 }
