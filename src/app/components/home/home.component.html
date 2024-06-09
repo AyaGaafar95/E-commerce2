@@ -93,7 +93,13 @@
           </div>
         </div>
 
-        <button class="main-btn w-100" #addBtn>+ Add TO Cart</button>
+        <button
+          class="main-btn w-100"
+          #addBtn
+          (click)="addProductToCart(product._id)"
+        >
+          + Add TO Cart
+        </button>
       </div>
     </div>
   </div>

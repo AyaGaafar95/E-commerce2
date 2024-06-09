@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { Categories } from 'src/app/core/services/interfaces/categories';
 import { ProductsService } from 'src/app/core/services/products.service';
 
@@ -14,7 +15,8 @@ export class HomeComponent {
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) {}
   userName: string | undefined;
   name = '';
@@ -50,6 +52,13 @@ export class HomeComponent {
       },
       error: (error) => {
         console.log(error);
+      },
+    });
+  }
+  addProductToCart(id: string): void {
+    this.cartService.addToCartItem(id).subscribe({
+      next: (response) => {
+        console.log(response);
       },
     });
   }
