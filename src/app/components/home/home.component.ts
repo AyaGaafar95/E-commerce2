@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Categories } from 'src/app/core/services/interfaces/categories';
@@ -16,7 +17,8 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private authService: AuthService,
     private productsService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastrService
   ) {}
   userName: string | undefined;
   name = '';
@@ -59,6 +61,7 @@ export class HomeComponent {
     this.cartService.addToCartItem(id).subscribe({
       next: (response) => {
         console.log(response);
+        this.toastr.success(response.message, 'Toastr fun!');
       },
     });
   }
