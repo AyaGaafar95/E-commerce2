@@ -61,7 +61,7 @@ export class HomeComponent {
     this.cartService.addToCartItem(id).subscribe({
       next: (response) => {
         console.log(response);
-        this.toastr.success(response.message, 'Toastr fun!');
+        this.toastr.success(response.message);
       },
     });
   }

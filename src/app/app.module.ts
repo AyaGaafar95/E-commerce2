@@ -56,7 +56,9 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right', // Position toasts at the top right
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
