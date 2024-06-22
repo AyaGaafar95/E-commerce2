@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
 import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { ProductsService } from 'src/app/core/services/products.service';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
+  cartService: any = {};
   constructor(
     private activateRoute: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private toastr: ToastrService
   ) {}
   productId: any;
   // productDetailsObj: {} = {};
@@ -36,6 +39,14 @@ export class ProductDetailsComponent implements OnInit {
       next: (response) => {
         console.log(response); //console will showing all product details from response
         this.productDetailsObj = response.data;
+      },
+    });
+  }
+  addProductToCart(id: string): void {
+    this.cartService.addToCartItem(id).subscribe({
+      next: (response: { message: string | undefined }) => {
+        console.log(response);
+        this.toastr.success(response.message);
       },
     });
   }

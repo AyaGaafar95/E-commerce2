@@ -32,7 +32,12 @@
             >
           </p>
         </div>
-        <button class="main-btn w-75">+ Add Cart</button>
+        <button
+          class="main-btn w-75"
+          (click)="addProductToCart(productDetailsObj._id)"
+        >
+          + Add Cart
+        </button>
       </div>
     </div>
   </div>

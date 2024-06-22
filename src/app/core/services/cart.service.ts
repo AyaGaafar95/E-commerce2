@@ -22,4 +22,12 @@ export class CartService {
       }
     );
   }
+  // addCartUser():Observable<any>{
+
+  // }
+  addCartUser(): Observable<any> {
+    return this.httpclient.get(this.baseUrl + `cart`, {
+      headers: this.myToaken,
+    });
+  }
 }
