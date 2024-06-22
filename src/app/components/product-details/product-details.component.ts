@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { ProductsService } from 'src/app/core/services/products.service';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
-  cartService: any = {};
+  // cartService: any = {};
   constructor(
     private activateRoute: ActivatedRoute,
     private productsService: ProductsService,
+    private cartService: CartService,
     private toastr: ToastrService
   ) {}
   productId: any;

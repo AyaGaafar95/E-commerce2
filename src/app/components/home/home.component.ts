@@ -4,7 +4,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
-import { Categories } from 'src/app/core/services/interfaces/categories';
+import { Categories } from 'src/app/core/interfaces/categories';
 import { ProductsService } from 'src/app/core/services/products.service';
 
 @Component({
