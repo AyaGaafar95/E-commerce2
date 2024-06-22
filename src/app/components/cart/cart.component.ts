@@ -15,8 +15,17 @@ export class CartComponent implements OnInit {
   whatIsInCart() {
     this.cartService.addCartUser().subscribe({
       next: (result) => {
-        console.log(result);
+        console.log('cart', result);
         this.cartDetails = result.data;
+      },
+    });
+  }
+
+  removeProduct(id: string): void {
+    this.cartService.removeCartItem(id).subscribe({
+      next: (response) => {
+        console.log('remove', response.data);
+        this.cartDetails = response.data;
       },
     });
   }

@@ -30,4 +30,10 @@ export class CartService {
       headers: this.myToaken,
     });
   }
+
+  removeCartItem(prodId: string): Observable<any> {
+    return this.httpclient.delete(this.baseUrl + `cart/${prodId}`, {
+      headers: this.myToaken,
+    });
+  }
 }
