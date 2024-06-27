@@ -36,4 +36,14 @@ export class CartService {
       headers: this.myToaken,
     });
   }
+  updateCount(prodId: string, countNumber: number): Observable<any> {
+    return this.httpclient.put(this.baseUrl + `cart/${prodId}`, {
+      count: countNumber,
+    },
+    {
+      headers:this.myToaken
+
+    }
+  );
+  }
 }

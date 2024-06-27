@@ -29,4 +29,13 @@ export class CartComponent implements OnInit {
       },
     });
   }
+  changCount(id: string, count: number) {
+    console.log(count);
+    this.cartService.updateCount(id, count).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.cartDetails = response.data;
+      },
+    });
+  }
 }
