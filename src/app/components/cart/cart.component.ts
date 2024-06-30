@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { CartService } from 'src/app/core/services/cart.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private renderer2: Renderer2) {}
   cartDetails: any = {};
   ngOnInit(): void {
     this.whatIsInCart();
@@ -29,13 +29,29 @@ export class CartComponent implements OnInit {
       },
     });
   }
-  changCount(id: string, count: number) {
-    console.log(count);
-    this.cartService.updateCount(id, count).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.cartDetails = response.data;
-      },
-    });
+  changCount(
+    id: string,
+    count: number,
+    btn1: HTMLButtonElement,
+    btn2: HTMLButtonElement
+  ) {
+    if (count >= 1) {
+      this.renderer2.setAttribute(btn1, 'disapled', ' true');
+      this.renderer2.setAttribute(btn2, 'disapled', ' true');
+
+      console.log(count);
+      this.cartService.updateCount(id, count).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.cartDetails = response.data;
+          this.renderer2.removeAttribute(btn1, 'disapled');
+          this.renderer2.removeAttribute(btn2, 'disapled');
+        },
+        error: () => {
+          this.renderer2.removeAttribute(btn1, 'disapled');
+          this.renderer2.removeAttribute(btn2, 'disapled');
+        },
+      });
+    }
   }
 }

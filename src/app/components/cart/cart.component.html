@@ -27,7 +27,10 @@
       </div>
       <div>
         <button
-          (click)="changCount(oneProduct.product._id, oneProduct.count - 1)"
+          #btn1
+          (click)="
+            changCount(oneProduct.product._id, oneProduct.count - 1, btn1, btn2)
+          "
           class="btn border-success btn-sm"
         >
           -
@@ -36,7 +39,10 @@
         <span> {{ oneProduct.count }} </span>
 
         <button
-          (click)="changCount(oneProduct.product._id, oneProduct.count + 1)"
+          #btn2
+          (click)="
+            changCount(oneProduct.product._id, oneProduct.count + 1, btn1, btn2)
+          "
           class="btn border-success btn-sm"
         >
           +
