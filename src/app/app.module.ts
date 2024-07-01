@@ -27,6 +27,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ToastrModule } from 'ngx-toastr';
     BlankLayoutComponent,
     CuttextPipe,
     ProductDetailsComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,
