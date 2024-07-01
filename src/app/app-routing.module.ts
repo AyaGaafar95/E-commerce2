@@ -12,6 +12,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { AuthGuard } from './components/guards/auth.guard';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,12 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        canActivate: [AuthGuard],
+      },
+
       {
         path: 'products',
         component: ProductsComponent,
