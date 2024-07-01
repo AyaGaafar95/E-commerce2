@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-  <button class="main-btn mt-3" routerLink="/payment">
+  <button class="main-btn mt-3" [routerLink]="['/payment', cartDetails._id]">
     Online payment <img src="./assets/images/visa-1.svg" alt="" />
   </button>
 </section>
