@@ -1,1 +1,32 @@
-<p>payment works!</p>
+<section class="w-75 mx-auto rounded bg-main-light p3 shadow">
+  <form action="" [formGroup]="checkOutForm" (ngSubmit)="handelForm()">
+    <div class="form-item">
+      <label for="details">details</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="details"
+        id="details"
+      />
+    </div>
+    <div class="form-item">
+      <label for="phone">phone</label>
+      <input
+        type="tel"
+        class="form-control"
+        formControlName="phone"
+        id="phone"
+      />
+    </div>
+    <div class="form-item">
+      <label for="city">city</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="city"
+        id="city"
+      />
+    </div>
+    <button class="main-btn">check Out</button>
+  </form>
+</section>
