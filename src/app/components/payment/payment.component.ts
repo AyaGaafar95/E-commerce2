@@ -7,24 +7,21 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })
-export class PaymentComponent implements OnInit{
-  constructor(
-    private activateRoute: ActivatedRoute,
-    // private productsService: ProductsService,
-    // private cartService: CartService,
-    // private toastr: ToastrService
-  ) {}
-  cartId :any  ;
+export class PaymentComponent implements OnInit {
+  constructor(private activateRoute: ActivatedRoute) {}
+  cartId: any;
   ngOnInit(): void {
-    this.activateRoute.paramMap.subscribe({
-      next:(params)=>{
-       this.cartId = params.get('id')
-      },
-      error:()=>{}
-    })
+    this.catchIdFromUrl();
   }
 
-
+  catchIdFromUrl() {
+    this.activateRoute.paramMap.subscribe({
+      next: (params) => {
+        this.cartId = params.get('id');
+      },
+      error: () => {},
+    });
+  }
 
   checkOutForm: FormGroup = new FormGroup({
     details: new FormControl(''),
@@ -34,6 +31,5 @@ export class PaymentComponent implements OnInit{
   handelForm(): void {
     console.log(this.checkOutForm.value);
     console.log(this.cartId);
-
   }
 }
